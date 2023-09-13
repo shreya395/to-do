@@ -1,0 +1,430 @@
+:root {
+	--dark: #374151;
+	--darker: #1F2937;
+	--darkest: #111827;
+	--grey: #6B7280;
+	--pink: #EC4899;
+	--purple: #8B5CF6;
+	--light: #eeeeee;
+	--green:#4CAF50;
+	--yellow:#FFC107;;
+	--blue:#2196f3;
+}
+* {
+	margin: 0;
+	box-sizing: border-box;
+	font-family: "Fira sans", sans-serif;
+}
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	color: #FFF;
+	background-color: var(--dark);
+}
+header {
+	padding: 2rem 1rem;
+	max-width: 800px;
+	width: 100%;
+	margin: 0 auto;
+}
+header h1{ 
+	font-size: 2.5rem;
+	font-weight: 300;
+	color: var(--light);
+	margin-bottom: 1rem;
+}
+#new-task-form {
+	display: flex;;
+}
+input, button {
+	appearance: none;
+	border: none;
+	outline: none;
+	background: none;
+}
+#new-task-input {
+	flex: 1 1 0%;
+	background-color: var(--darker);
+	padding: 1rem;
+	border-radius: 1rem;
+	margin-right: 1rem;
+	color: var(--light);
+	font-size: 1.25rem;
+}
+#new-task-input::placeholder {
+	color: var(--grey);
+}
+#new-task-submit {
+	color: var(--pink);
+	font-size: 1.25rem;
+	font-weight: 700;
+	background-color: var(--light);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	cursor: pointer;
+	transition: 0.4s;
+}
+#new-task-submit:hover {
+	opacity: 0.8;
+}
+#new-task-submit:active {
+	opacity: 0.6;
+}
+main {
+	flex: 1 1 0%;
+	max-width: 800px;
+	width: 100%;
+	margin: 0 auto;
+}
+.task-list {
+	padding: 1rem;
+    max-height: 270px;
+    overflow-y:scroll;
+}
+.task-list::-webkit-scrollbar {
+    display: none;
+  }
+.task-list h2 {
+	font-size: 1.5rem;
+	font-weight: 300;
+	color: var(--grey);
+	margin-bottom: 1rem;
+}
+#tasks .task {
+	display: flex;
+	justify-content: space-between;
+	background-color: var(--darkest);
+	padding: 1rem;
+	border-radius: 1rem;
+	margin-bottom: 1rem;
+}
+.task .content {
+	flex: 1 1 0%;
+}
+.task .content .text {
+	color: var(--light);
+	font-size: 1.125rem;
+	width: 100%;
+	display: block;
+	transition: 0.4s;
+}
+.task .content .text:not(:read-only) {
+	color: var(--pink);
+}
+.task .actions {
+	display: flex;
+	margin: 0 -0.5rem;
+}
+.task .actions button {
+	cursor: pointer;
+	margin: 0 0.5rem;
+	font-size: 1.125rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	transition: 0.4s;
+}
+.task .actions button:hover {
+	opacity: 0.8;
+}
+.task .actions button:active {
+	opacity: 0.6;
+}
+.task .actions .edit {
+	background-color: var(--light);
+	color: var(--pink);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+.task .actions .delete {
+	color: crimson;
+}
+.searchInput {
+    position: absolute;
+    top: 2rem;
+    left: 1rem;
+    padding: 0.5rem;
+    background-color: var(--darker);
+    border: 1px solid var(--grey);
+    border-radius: 0.5rem;
+    color: var(--light);
+    font-size: 0.65rem;
+}
+#searchButton {
+    position: absolute;
+    top: 2rem;
+    left: calc(1rem + 150px);
+    padding: 0.5rem;
+    color: var(--light);
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: background-color 0.3s, opacity 0.3s;
+}
+
+/* Style for the voice search button */
+#voice-search-button {
+    position: absolute;
+    top: 1.6rem; /* Adjust the top position as needed */
+    left: calc(2.3rem + 145px + 2rem); /* Shifted to the right of the search button */
+    color: var(--light);
+    border: none;
+    border-radius: 50%;
+    padding: 0.9rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background-color 0.3s, opacity 0.3s;
+}
+
+#searchButton:hover {
+    background-color: var(--pink);
+    opacity: 0.8;
+}
+
+#searchButton:active {
+    opacity: 0.6;
+}
+
+#voice-search-button:hover {
+    background-color: var(--pink);
+    opacity: 0.8;
+}
+
+#voice-search-button:active {
+    opacity: 0.6;
+}
+#sortButton {
+    position: absolute;
+    top: 2rem;
+    right: 1rem;
+    padding: 0.8rem;
+	background-color: var(--darker);
+    color: var(--light);
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: background-color 0.3s, opacity 0.3s;
+}
+#sortButton:hover {
+    background-color: var(--pink);
+    opacity: 0.8;
+}
+#sortButton:active {
+    opacity: 0.6;
+}
+.task .actions .complete {
+	background-color: var(--light);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    transition: background-color 0.3s, opacity 0.3s;
+    margin-right: 0.5rem;
+}
+.task .content .text.completed {
+    text-decoration: line-through;
+    color: var(--grey);
+}
+.task .actions .complete:hover {
+    background-color: var(--pink);
+    opacity: 0.8;
+}
+.task .actions .complete:active {
+    opacity: 0.6;
+}
+@media (max-width: 768px) {
+    .task .actions .complete {
+        font-size: 0.5rem;
+    }
+}
+.task .content .category {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+	background-color: var(--darker);
+    border: 1px solid var(--grey);
+    border-radius: 0.5rem;
+    color: var(--light);
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+#task-category {
+    padding: 0.5rem;
+    border: 1px solid var(--grey);
+    border-radius: 0.5rem;
+	text-align: center;
+	background-color: var(--darker);
+    color: var(--light);
+    font-size: 1rem;
+    margin: 0.9rem;
+    appearance: none;
+    -webkit-appearance: none; 
+    background-image: url('path/to/your/custom-arrow-icon.png'); 
+    background-repeat: no-repeat;
+    background-position: right center;
+    cursor: pointer;
+	transition: 0.5s;
+}
+#task-category option {
+    background-color: var(--dark);
+    color: var(--light);
+}
+
+.task .content .category.work {
+    background-color: var(--green); 
+}
+.task .content .category.personal {
+    background-color: var(--yellow);
+}
+.task .content .category.shopping {
+    background-color: var(--blue); 
+}
+.task {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+.task.fade-in {
+    opacity: 1; 
+}
+.task.fade-out {
+    opacity: 0; 
+    transition: opacity 0.5s ease-in-out; 
+}
+#new-task-due-date {
+    padding: 0.3rem;
+    border: 1px solid var(--grey);
+    border-radius: 0.3rem;
+    color: var(--light);
+    font-size: 0.8rem;
+    margin-right: 1.1rem;
+    appearance: none; 
+    -webkit-appearance: none; 
+    background-repeat: no-repeat;
+    background-position: right center;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.task .content .due-date {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background-color: var(--darker);
+    border: 1px solid var(--grey);
+    border-radius: 0.5rem;
+    color: var(--light);
+	width: 145px;
+    font-size: 0.8rem;
+    transition: 0.5s;
+}
+.task .content .due-date.overdue {
+    background-color: crimson;
+}
+
+.task .content .due-date.soon {
+    background-color: #FFC107; 
+}
+.task:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+}
+
+#clock {
+    font-size: 18px;
+    margin-left: auto; 
+    color: var(--light); 
+}
+.datetime-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    color: var(--light);
+}
+
+  
+
+  
+ 
+  
+
+
+@media (max-width: 768px) {
+    body {
+        padding: 1rem; 
+    }
+    header {
+        padding: 1rem; 
+    }
+    header h1 {
+        font-size: 2rem; 
+    }
+    #new-task-form {
+        flex-direction: column; 
+    }
+    #new-task-input {
+        margin-right: 0; 
+    }
+    #new-task-submit {
+        font-size: 1rem; 
+    }
+    .task-list {
+        max-height: none; 
+    }
+    .task {
+        flex-direction: column; 
+        margin-bottom: 2rem; 
+        padding: 1.5rem;
+    }
+
+    .task .actions {
+        justify-content: center; 
+    }
+    .task .actions button {
+        font-size: 1rem; 
+        margin: 0.25rem; 
+    }
+    .searchInput {
+        position: static; 
+        margin-top: 1rem; 
+        width: auto;
+    }
+    #searchButton {
+        position: static; 
+        margin-top: 0.5rem; 
+        width: 100%;
+        text-align: center;
+    }
+    #voice-search-button {
+        top: 22rem;
+        /* left: 0.0rem; */
+        right:14rem;
+        margin: auto;
+        padding: 1rem; /* Adjust padding for smaller screens */
+        font-size: 0.7rem; /* Adjust font size for smaller screens */
+    }
+
+    #sortButton {
+        right: 1rem; 
+    }
+    .task .actions .complete {
+        font-size: 0.8rem;
+        padding: 0.3rem; 
+    }
+    #new-task-due-date {
+        font-size: 0.7rem; 
+    }
+    #task-category {
+        font-size: 0.7rem; 
+    }
+    .task .content .due-date {
+        font-size: 0.7rem; 
+    }
+   
+}
